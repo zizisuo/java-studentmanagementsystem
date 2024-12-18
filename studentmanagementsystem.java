@@ -14,6 +14,32 @@ static class students{
         this.name=name;
         this.age=age;
     }
+
+    public String getId(){
+        return id;
+    }
+    public String getName(){
+        return name;
+    }
+    public int getIAge(){
+        return age;
+    }
+
+    public void setId(String id){
+        this.id=id;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public void setAge(int age){
+        this.age=age;
+    }
+
+    public String display(){
+        return String.format("%s\t%s\t%d\t", id, name, age);
+    }
+
+
 }
 
     //添加学生
@@ -39,7 +65,7 @@ static class students{
         System.out.println("who you want to delete?");
         String tofind=scan.next();
         for(int i=0;i<list.size();i++){
-            if(list.get(i).id.equals(tofind)){
+            if(list.get(i).getId().equals(tofind)){
                     list.remove(i);
                 return ;
             }
@@ -56,13 +82,13 @@ static class students{
         System.out.println("who you want to modify?");
         String tofind=scan.next();
         for(int i=0;i<list.size();i++){
-            if(list.get(i).id.equals(tofind)){
+            if(list.get(i).getId().equals(tofind)){
                     System.err.println("what is the name?");
                     String namein=scan.next();
-                    System.err.println("what is the age?");
+                    System.out.println("what is the age?");
                     int agein=scan.nextInt();
-                    list.get(i).name=namein;
-                    list.get(i).age=agein;
+                    list.get(i).setName(namein);
+                    list.get(i).setAge(agein);
                 return ;
             }
         }
@@ -78,9 +104,9 @@ static class students{
         System.out.println("who you want to find");
         String tofind=scan.next();
         for(int i=0;i<list.size();i++){
-            if(list.get(i).id.equals(tofind)){
+            if(list.get(i).getId().equals(tofind)){
                 System.out.println("ID\tNAME\tAGE\t");
-                System.out.print(list.get(i).id+"\t"+list.get(i).name+"\t"+list.get(i).age+"\n");
+                System.out.println(list.get(i).display());
                 return ;
             }
         }
@@ -91,7 +117,7 @@ static class students{
     public static void display_students(ArrayList<students>list){
         System.out.println("ID\tNAME\tAGE\t");
         for(int i=0;i<list.size();i++){
-           System.out.print(list.get(i).id+"\t"+list.get(i).name+"\t"+list.get(i).age+"\n");
+           System.out.println(list.get(i).display());
         }
     }
     public static void show_menu(){
